@@ -1,6 +1,8 @@
 export class Tournois {
     nom: string;
     lieu: string;
-    date_debut:Date;
-    date_fin:Date;
+    pays: string;
+    surface: string;
+    date_debut:string;
+    date_fin:string;
 }

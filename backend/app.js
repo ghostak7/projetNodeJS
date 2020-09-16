@@ -6,7 +6,7 @@ const Tournoi = require('./models/tournoi');
 
 const app = express();
 
-
+//Connexion Bdd mongodb (cloud)
 mongoose.connect('mongodb+srv://abel1234:1234abel@cluster0.8q6qe.mongodb.net/projet_bi?retryWrites=true&w=majority',
 {
     userNewUrlParser:true,
@@ -28,12 +28,14 @@ app.use((req, res, next) => {
 
 app.use(bodyParser.json());
 
-app.get('/tournois', (req, res, next) => {
+app.use(require('./Routes/tournoisRoutes'))
 
-    Tournoi.find()
-    .then( tournois => res.status(200).json(tournois))
-    .catch( error => res.status(400).json({error}))
-})
+// app.get('/tournois', (req, res, next) => {
+
+//     Tournoi.find()
+//     .then( tournois => res.status(200).json(tournois))
+//     .catch( error => res.status(400).json({error}))
+// })
 
 
 
