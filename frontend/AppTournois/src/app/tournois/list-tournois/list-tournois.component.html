@@ -1,0 +1,21 @@
+<!-- <p>list-tournois works!</p>
+ 
+<table class="table table-striped">
+    <thead class="thead-default">
+    <tr>
+      <th>nom</th>
+      <th>lieu</th>
+      <th>date de début</th>
+      <th>date de fin</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let tournoi of Tournois">
+            <td> {{ tournoi.nom }} </td>
+            <td> {{ tournoi.lieu }} </td>
+    </tr>
+    </tbody>
+</table> -->
+<ul>
+  <li *ngFor="let tournoi of Tournois;"> {{ tournoi.nom }}</li>
+</ul>
