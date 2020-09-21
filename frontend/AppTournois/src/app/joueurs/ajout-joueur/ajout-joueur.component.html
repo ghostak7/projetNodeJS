@@ -1,0 +1,43 @@
+<p>ajout-joueur works!</p>
+
+<form [formGroup]="ajoutForm" (ngSubmit)="onSubmit()" >
+    <div class="form-group">
+      <label for="nom">Nom</label>
+      <input type="text" class="form-control" formControlName="nom" placeholder="">
+    </div>
+  
+    <div class="form-group">
+      <label for="prenom">Prenom</label>
+      <input type="text" formControlName="prenom" class="form-control" placeholder="">
+    </div>
+  
+    <div class="form-group">
+      <label for="sexe">Sexe</label>
+      <select formControlName="sexe" class="form-control" >
+        <option value="homme">Homme</option>
+        <option value="femme">Femme</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="age">Age</label>
+      <!-- <input type="date" formControlName="age" class="form-control" placeholder=""> -->
+      <input type="text" formControlName="age" class="form-control" placeholder="">
+    </div>
+  
+    <div class="form-group">
+      <label for="nom_tournoi">Tournois</label>
+      <input type="text" formControlName="nom_tournoi" class="form-control" >
+    </div>
+  
+    <div class="form-group">
+      <label for="nom_equipe">Equipe</label>
+      <input type="text" formControlName="nom_equipe" class="form-control" >
+    </div>
+  
+    <div class="form-group">
+      <button class="btn btn-primary" type="submit">
+        Ajouter
+      </button>
+    </div>
+  </form>

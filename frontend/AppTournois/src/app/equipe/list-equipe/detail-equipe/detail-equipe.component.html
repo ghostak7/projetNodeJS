@@ -1,0 +1,59 @@
+<p>detail-equipe works!</p>
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="form-group"> 
+        <label for="nom">Nom</label>
+        <input type="text" name="nom" class="form-control"  placeholder="" value="{{equipe.nom}}" [disabled]="!isModify" ngModel required>
+    </div>
+
+    <div *ngIf="!isModify" class="form-group">
+        <label for="tournoi">Nom du tournoi</label>
+        <input type="text" name="tournoi"  class="form-control" placeholder="" value="{{equipe.id_tournoi}}" [disabled]="!isModify" ngModel required>
+      </div>
+
+      <div *ngIf="!isModify" class="form-group">
+        <label for="joueur">Nom du joueur 1</label>
+        <input type="text" name="joueur"  class="form-control" placeholder="" value="{{equipe.id_joueurs}}" [disabled]="!isModify" ngModel required>
+      </div>
+
+      <div *ngIf="!isModify" class="form-group">
+        <label for="joueur2">Nom du joueur 2</label>
+        <input type="text" name="joueur2"  class="form-control" placeholder="" value="{{equipe.id_joueur2}}" [disabled]="!isModify" ngModel required>
+      </div>
+
+      <div *ngIf="isModify" class="form-group">
+        <label for="tournoi">Liste des Tournois</label>
+        <select   name="tournoi" class="form-control" >
+          <option *ngFor="let tournoi of tournois" value="{{tournoi.nom}}">{{tournoi.nom}}</option>
+        </select>
+      </div>
+
+      <div *ngIf="isModify" class="form-group">
+        <label for="joueurs">Liste des Joueurs 1</label>
+        <select  name="joueurs" class="form-control" >
+          <option *ngFor="let joueur of joueurs" value="{{joueur.nom}}">{{joueur.nom}}</option>
+        </select>
+      </div>
+
+      <div *ngIf="isModify" class="form-group">
+        <label for="joueurs">Liste des Joueurs 2</label>
+        <select  name="joueurs2" class="form-control" >
+          <option *ngFor="let joueur of joueurs" value="{{joueur.nom}}">{{joueur.nom}}</option>
+        </select>
+      </div>
+    
+      <div class="form-group">
+        <button *ngIf="isModify" class="btn btn-primary" type="submit" >
+          Enregistrer
+        </button>
+        <button *ngIf="isModify" class="btn btn-primary" type="reset" (click)="onCancel()">
+          Cancel
+        </button>
+      </div>
+</form>
+
+<button *ngIf="!isModify" type="button" class="btn btn-primary"  (click)="onModifier()">
+  Modifier
+</button>
+<button *ngIf="!isModify" type="button" class="btn btn-primary" (click)="onDelete()">
+  Supprimer
+</button>

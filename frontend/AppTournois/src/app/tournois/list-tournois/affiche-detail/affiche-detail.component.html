@@ -1,0 +1,57 @@
+<p>affiche-detail works!</p>
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="form-group">
+        <label for="nom">Nom</label>
+        <input type="text" name="nom" class="form-control"  placeholder="" value="{{tournois.nom}}" [disabled]="!isModify" ngModel required>
+    </div>
+
+    <div class="form-group">
+        <label for="lieu">Lieu</label>
+        <input type="text" name="lieu"  class="form-control" placeholder="" value="{{tournois.lieu}}" [disabled]="!isModify" ngModel required>
+      </div>
+
+      <div class="form-group">
+        <label for="pays">Pays</label>
+        <select name="pays" class="form-control" value="{{tournois.pays}}" [disabled]="!isModify" ngModel required>
+          <option value="Australie">Australie</option>
+          <option value="France">France</option>
+          <option value="Royaume-Uni">Royaume-Uni</option>
+          <option value="États-Unis">États-Unis</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="surface">Surface</label>
+        <select name="surface" class="form-control" value="{{tournois.surface}}" [disabled]="!isModify" ngModel required>
+          <option value="Dur">Dur</option>
+          <option value="Terre battue">Terre battue</option>
+          <option value="Gazon">Gazon</option>
+          <option value="Parquet">Parquet</option>
+        </select>
+      </div>
+    
+      <div class="form-group">
+        <label for="date_debut">Date de début</label>
+        <input type="date" name="date_debut" class="form-control" placeholder="{{tournois.date_debut}}" value="{{tournois.date_debut | date:'yyyy-MM-dd'}}" [disabled]="!isModify" data-date-format="mm/dd/yyyy" ngModel required>
+      </div>
+    
+      <div class="form-group">
+        <label for="date_fin">Date de fin</label>
+        <input type="date" name="date_fin" class="form-control" placeholder="{{tournois.date_fin}}" value="{{tournois.date_debut | date:'yyyy-MM-dd'}}" [disabled]="!isModify" data-date-format="mm/dd/yyyy" ngModel required>
+      </div>
+      <div class="form-group">
+        <button *ngIf="isModify" class="btn btn-primary" type="submit" >
+          Enregistrer
+        </button>
+        <button *ngIf="isModify" class="btn btn-primary" type="reset" (click)="onCancel()">
+          Cancel
+        </button>
+      </div>
+</form>
+
+<button *ngIf="!isModify" type="button" class="btn btn-primary"  (click)="onModifier()">
+  Modifier
+</button>
+<button *ngIf="!isModify" type="button" class="btn btn-primary" (click)="onDelete()">
+  Supprimer
+</button>

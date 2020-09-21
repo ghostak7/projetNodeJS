@@ -1,4 +1,5 @@
 export class Tournois {
+    _id:string;
     nom: string;
     lieu: string;
     pays: string;

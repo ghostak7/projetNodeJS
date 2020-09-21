@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { TournoisService } from '../../services/tournois.service';
 import { Tournois } from '../../models/tournois.model';
-import { Observable } from 'rxjs';
-
+import { VariablesGlobales } from '../../variableGlobal';
 
 @Component({
   selector: 'app-list-tournois',
@@ -13,17 +13,25 @@ import { Observable } from 'rxjs';
 export class ListTournoisComponent implements OnInit {
 
   Tournois = [];
-  
-
-  constructor( private _tournoisService: TournoisService) { }
+  constructor(
+    private router: Router, 
+    private tournoisService: TournoisService,
+    private varGlo: VariablesGlobales
+     ) { }
 
   ngOnInit() {
-    this._tournoisService.GetlistTournois().subscribe(
+    this.tournoisService.GetAllTournois().subscribe(
       (value) => {
                     this.Tournois = value;
-                    console.log(value)
                   }
     );
+  }
+
+  onDetail(tournois:Tournois){
+    
+    this.varGlo.tournoisId = tournois._id;
+    this.varGlo.tournoi = tournois;
+    this.router.navigate(['detailTournoi',tournois._id]);
   }
 
 }

@@ -1,0 +1,51 @@
+<h2>Ajouter un tournoi</h2>
+
+<form [formGroup]="AjoutForm" (ngSubmit)="onSubmit()" >
+  <div class="form-group">
+    <label for="nom">Nom</label>
+    <input type="text" class="form-control" formControlName="nom" placeholder="">
+  </div>
+
+  <div class="form-group">
+    <label for="lieu">Lieu</label>
+    <input type="text" formControlName="lieu" class="form-control" placeholder="">
+  </div>
+
+  <div class="form-group">
+    <label for="pays">Pays</label>
+    <select formControlName="pays" class="form-control" >
+      <option selected>Sélectionner un pays...</option>
+      <option value="Australie">Australie</option>
+      <option value="France">France</option>
+      <option value="Royaume-Uni">Royaume-Uni</option>
+      <option value="États-Unis">États-Unis</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="surface">Surface</label>
+    <select formControlName="surface" class="form-control" >
+      <option selected>Sélectionner une surface...</option>
+      <option value="Dur">Dur</option>
+      <option value="Terre battue">Terre battue</option>
+      <option value="Gazon">Gazon</option>
+      <option value="Parquet">Parquet</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="date_debut">Date de début</label>
+    <input type="date" formControlName="date_debut" class="form-control" >
+  </div>
+
+  <div class="form-group">
+    <label for="date_fin">Date de fin</label>
+    <input type="date" formControlName="date_fin" class="form-control" >
+  </div>
+
+  <div class="form-group">
+    <button class="btn btn-primary">
+      Ajouter
+    </button>
+  </div>
+</form>

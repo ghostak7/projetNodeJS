@@ -1,0 +1,26 @@
+<p>list-joueur works!</p>
+
+<table class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+      <th>Nom</th>
+      <th>Prenom</th>
+      <th>sexe</th>
+      <th>Age</th>
+      <th>Equipe</th>
+      <th>Tournoi</th>
+      <th>...</th>
+    </tr>
+    </thead>
+    <tbody> 
+    <tr *ngFor="let joueur of joueurList">
+            <td style="font-weight:bold"> {{ joueur.nom }} </td>
+            <td> {{ joueur.prenom }} </td>
+            <td> {{ joueur.sexe}} </td>
+            <td> {{ joueur.age }} </td>
+            <td> {{ joueur.id_equipe }} </td>
+            <td> {{ joueur.id_tournoi }} </td>
+            <th><button type="button" class="btn btn-dark" (click)="onDetail(joueur)" route>Détails...</button></th>
+    </tr>
+    </tbody>
+</table>

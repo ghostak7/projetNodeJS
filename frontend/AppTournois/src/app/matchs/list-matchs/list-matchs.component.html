@@ -1,0 +1,26 @@
+<p>list-matchs works!</p>
+
+<table class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+      <th>numero</th>
+      <th>joueur1</th>
+      <th>joueur2</th>
+      <th>Sets</th>
+      <th>Gagnant</th>
+      <th>Perdant</th>
+      <th>...</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let match of Matchs">
+            <td style="font-weight:bold"> {{ match.numero }} </td>
+            <td> {{ match.id_joueur1 }} </td>
+            <td> {{ match.id_joueur2 }} </td>
+            <td> {{ match.sets }} </td>
+            <td> {{ match.gagnant }} </td>
+            <td> {{ match.perdant }} </td>
+            <th><button type="button" class="btn btn-dark" (click)="onDetail(match)" route>Détails...</button></th>
+    </tr>
+    </tbody>
+</table>

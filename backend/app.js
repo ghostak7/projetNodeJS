@@ -15,20 +15,23 @@ mongoose.connect('mongodb+srv://abel1234:1234abel@cluster0.8q6qe.mongodb.net/pro
 .catch( () => console.log('Connexion échouée à MongoDB !'));
 
 app.use( (req, res, next) => {
-    console.log('Nouvelle Requête, recu!')
+    //console.log('Nouvelle Requête, recu!')
     next();
 })
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
     next();
   });
 
 app.use(bodyParser.json());
 
 app.use(require('./Routes/tournoisRoutes'))
+app.use(require('./Routes/joueursRoutes'))
+app.use(require('./Routes/equipesRoutes'))
+app.use(require('./Routes/matchsRoutes'))
 
 // app.get('/tournois', (req, res, next) => {
 

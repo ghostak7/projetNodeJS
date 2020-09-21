@@ -16,7 +16,7 @@
     <tr *ngFor="let tournoi of Tournois">
             <td style="font-weight:bold"> {{ tournoi.nom }} </td>
             <td> {{ tournoi.lieu }} </td>
-            <td> 
+            <td>
               <img *ngIf="tournoi.pays==='Australie'" src="../../../assets/flag_australia.svg"  width="25" height="25" alt="Drapeau Australie"> 
               <img *ngIf="tournoi.pays==='France'" src="../../../assets/flag_fr.svg"  width="25" height="25" alt="Drapeau France"> 
               <img *ngIf="tournoi.pays==='Royaume-Uni'" src="../../../assets/flag_uk.svg"  width="25" height="25" alt="Drapeau UK"> 
@@ -25,10 +25,7 @@
             <td> {{ tournoi.surface}} </td>
             <td> {{ tournoi.date_debut }} </td>
             <td> {{ tournoi.date_fin }} </td>
-            <th><button type="button" class="btn btn-dark" route>Détails...</button></th>
+            <th><button type="button" class="btn btn-dark" (click)="onDetail(tournoi)" route>Détails...</button></th>
     </tr>
     </tbody>
 </table>
-<!-- <ul>
-  <li *ngFor="let tournoi of Tournois;"> {{ tournoi.nom }}</li>
-</ul> -->

@@ -1,0 +1,21 @@
+<p>list-equipe works!</p>
+<table class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+      <th>Nom de l'équipe</th>
+      <th>Nom du joueur 1</th>
+      <th>Nom du joueur 2</th>
+      <th>Nom du tournoi</th>
+      <th>...</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let equipes of equipe">
+            <td style="font-weight:bold"> {{ equipes.nom }} </td>
+            <td> {{ equipes.id_joueurs }} </td>
+            <td> {{ equipes.id_joueur2 }} </td>
+            <td> {{ equipes.id_tournoi}} </td>
+            <th><button type="button" class="btn btn-dark" (click)="onDetail(equipes)" route>Détails...</button></th>
+    </tr>
+    </tbody>
+</table>

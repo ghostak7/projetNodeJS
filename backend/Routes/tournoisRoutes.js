@@ -16,19 +16,23 @@ router.route('/tournois')
 
 
 //POST
-.post( (request, response) => {
+.post( (req, res) => {
 
+    const tournoi = new Tournoi({
+        ...req.body
+    });
+
+    tournoi.save()
+    .then( () => {
+        res.status(201).json({
+            message: 'Un tournoi à été crée enregistré!'
+        })
+    })
+    .catch( error => res.status(400).json({ error}));
 })
 
-//UPDATE
-.put( (request, response) => {
 
-})
 
-//DELETE
-.delete( (request, response) => {
-
-})
 
 router.get('/tournois/:id', (req, res) => {
     console.log(req.params._id)
@@ -42,5 +46,31 @@ router.get('/tournois/:id', (req, res) => {
     //res.render('hello', {name:req.params.name, title:"Fenetre de bienvenue!"})
     //res.send('coucou '+ req.params.name)
 });
+
+//UPDATE
+router.put('/tournois/:id', (req, res) => {
+
+    const tournoi = new Tournoi({
+        ...req.body
+    });
+
+    Tournoi.updateOne({ _id: req.params.id}, { $set: {
+         nom: tournoi.nom,
+         lieu: tournoi.lieu,
+         pays: tournoi.pays,
+         surface: tournoi.surface,
+         date_debut: tournoi.date_debut,
+         date_fin: tournoi.date_fin}})
+    .then( ( )=> res.status(200).json({ message : 'Tournoi modifié!'}))
+    .catch( error => res.status(400).json({ error}));
+})
+
+//DELETE
+router.delete('/tournois/:id', (req, res) => {
+
+    Tournoi.deleteOne({_id:req.params.id})
+    .then( () => res.status(200).json({ message : 'Tournoi Supprimé!'}))
+    .catch( error => res.status(400).json({error}))
+})
 
 module.exports = router

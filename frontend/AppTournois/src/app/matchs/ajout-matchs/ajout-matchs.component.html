@@ -1,0 +1,45 @@
+<p>ajout-matchs works!</p>
+<h2>Ajouter un Match</h2>
+
+<form [formGroup]="AjoutForm" (ngSubmit)="onSubmit()" >
+  
+    <div class="form-group"> 
+        <label for="numero">Numero</label>
+        <input type="text" class="form-control" name="numero" formControlName="numero" placeholder="">
+    </div>
+
+  <div class="form-group">
+    <label for="joueurs">Liste des Joueurs 1</label>
+    <select  formControlName="id_joueur1" class="form-control" >
+      <option *ngFor="let joueur of joueurs" value="{{joueur.nom}}">{{joueur.nom}}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="joueur2">Liste des joueur 2</label>
+    <select  formControlName="id_joueur2" class="form-control" >
+      <option *ngFor="let joueur of joueurs" value="{{joueur.nom}}">{{joueur.nom}}</option>
+    </select>
+  </div>
+
+  <!-- <div class="form-group">
+    <label for="sets">Sets</label>
+    <input type="text" formControlName="sets" class="form-control" placeholder="">
+  </div> -->
+
+  <div class="form-group">
+    <label for="gagnant">Gagnant</label>
+    <input type="text" formControlName="gagnant" name="gagnant" class="form-control" placeholder="">
+  </div>
+
+  <div class="form-group">
+    <label for="perdant">Perdant</label>
+    <input type="text" formControlName="perdant"  name="perdant" class="form-control" placeholder="">
+  </div>
+
+
+  <div class="form-group">
+    <button class="btn btn-primary">
+      Ajouter
+    </button>
+  </div>
+</form>

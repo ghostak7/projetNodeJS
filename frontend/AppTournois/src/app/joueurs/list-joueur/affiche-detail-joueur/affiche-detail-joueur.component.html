@@ -1,0 +1,51 @@
+<p>affiche-detail-joueur works!</p>
+ 
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="form-group">
+        <label for="nom">Nom</label>
+        <input type="text" name="nom" class="form-control"  placeholder="" value="{{joueur.nom}}" [disabled]="!isModify" ngModel required>
+    </div>
+
+    <div class="form-group">
+        <label for="prenom">Prenom</label>
+        <input type="text" name="prenom"  class="form-control" placeholder="" value="{{joueur.prenom}}" [disabled]="!isModify" ngModel required>
+      </div>
+
+      <div class="form-group">
+        <label for="sexe">Sexe</label>
+        <select name="sexe" class="form-control" value="{{joueur.sexe}}" [disabled]="!isModify" ngModel required>
+            <option value="homme">Homme</option>joueur.
+            <option value="femme">Femme</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="age">Age</label>
+        <input type="text" name="age" class="form-control" value="{{joueur.age}}" [disabled]="!isModify" ngModel required>
+      </div>
+    
+      <div class="form-group">
+        <label for="nom_tournoi">Nom du tournoi</label>
+        <input type="datetext" name="nom_tournoi" class="form-control"  value="{{joueur.id_tournoi}}" [disabled]="!isModify" ngModel required>
+      </div>
+    
+      <div class="form-group">
+        <label for="nom_equipe">Nom de l'équipe</label>
+        <input type="text" name="nom_equipe" class="form-control"  value="{{joueur.id_equipe}}" [disabled]="!isModify" ngModel required>
+      </div>
+      <div class="form-group">
+        <button *ngIf="isModify" class="btn btn-primary" type="submit" >
+          Enregistrer
+        </button>
+        <button *ngIf="isModify" class="btn btn-primary" type="reset" (click)="onCancel()">
+          Cancel
+        </button>
+      </div>
+</form>
+
+<button *ngIf="!isModify" type="button" class="btn btn-primary"  (click)="onModifier()">
+  Modifier
+</button>
+<button *ngIf="!isModify" type="button" class="btn btn-primary" (click)="onDelete()">
+  Supprimer
+</button>

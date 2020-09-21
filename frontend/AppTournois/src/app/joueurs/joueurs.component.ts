@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JoueursComponent implements OnInit {
 
+  // public ajout = false;
   constructor() { }
 
   ngOnInit(): void {
   }
 
-}
+  // onAjout(){
+  //   this.ajout = true;
+  // }
+
+} 

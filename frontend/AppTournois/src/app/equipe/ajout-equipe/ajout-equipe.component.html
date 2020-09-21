@@ -1,0 +1,35 @@
+<p>ajout-equipe works!</p>
+
+<form [formGroup]="AjoutForm" (ngSubmit)="onSubmit()" >
+    <div class="form-group">
+      <label for="nom">Nom de l'équipe</label>
+      <input type="text" class="form-control" formControlName="nom" placeholder="">
+    </div>
+  
+    <div class="form-group">
+      <label for="tournoi">Liste des Tournois</label>
+      <select formControlName="tournois" class="form-control" >
+        <option *ngFor="let tournoi of tournois" value="{{tournoi.nom}}">{{tournoi.nom}}</option>
+      </select>
+    </div>
+  
+    <div class="form-group">
+      <label for="joueurs">Liste des Joueurs 1</label>
+      <select  formControlName="joueurs" class="form-control" >
+        <option *ngFor="let joueur of joueurs" value="{{joueur.nom}}">{{joueur.nom}}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="joueur2">Liste des joueur 2</label>
+      <select  formControlName="joueurs2" class="form-control" >
+        <option *ngFor="let joueur of joueurs" value="{{joueur.nom}}">{{joueur.nom}}</option>
+      </select>
+    </div>
+  
+    <div class="form-group">
+      <button class="btn btn-primary">
+        Ajouter
+      </button>
+    </div>
+  </form>

@@ -1,0 +1,46 @@
+<p>match-detail works!</p>
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="form-group">
+        <label for="numero">Numeo</label>
+        <!-- <input type="text" name="nom" class="form-control" value="{{tournois.nom}}" ngModel required> -->
+        <input type="text" name="numero" class="form-control"  placeholder="" value="{{numero}}"  [disabled]="!isModify" ngModel required>
+    </div>
+
+    <div class="form-group">
+        <label for="id_joueur1">Joueur 1</label>
+        <input type="text" name="id_joueur1"  class="form-control" placeholder="" value="{{id_joueur1}}" [disabled]="!isModify" ngModel required>
+      </div>
+
+      <div class="form-group">
+        <label for="id_joueur2">Joueur 2</label>
+        <input type="text" name="id_joueur2"  class="form-control" placeholder="" value="{{id_joueur2}}" [disabled]="!isModify" ngModel required>
+      </div>
+
+      <div class="form-group">
+        <label for="gagnant">Gangnant </label>
+        <input type="text" name="gagnant"  class="form-control" placeholder="" value="{{gagnant}}" [disabled]="!isModify" ngModel required>
+      </div>
+
+      <div class="form-group">
+        <label for="perdant">Perdant </label>
+        <input type="text" name="perdant"  class="form-control" placeholder="" value="{{perdant}}" [disabled]="!isModify" ngModel required>
+      </div>
+
+    
+    
+      <div class="form-group">
+        <button *ngIf="isModify" class="btn btn-primary" type="submit" >
+          Enregistrer
+        </button>
+        <button *ngIf="isModify" class="btn btn-primary" type="reset">
+          Cancel
+        </button>
+      </div>
+</form>
+
+<button *ngIf="!isModify" type="button" class="btn btn-primary"  (click)="onModifier()">
+  Modifier
+</button>
+<button *ngIf="!isModify" type="button" class="btn btn-primary" (click)="onDelete()">
+  Supprimer
+</button>
